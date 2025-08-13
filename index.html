@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Shower - ¡Es una niña!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #f8e8ff 50%, #fff0f5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 70%; animation-delay: 0.5s; }
+        .heart:nth-child(5) { left: 80%; animation-delay: 1.5s; }
+        .heart:nth-child(6) { left: 90%; animation-delay: 2.5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d147a3;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(209, 71, 163, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(209, 71, 163, 0.3); }
+            to { text-shadow: 2px 2px 20px rgba(209, 71, 163, 0.6); }
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #8b4d8e;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .baby-info {
+            background: linear-gradient(45deg, #fff, #fdf2fd);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(209, 71, 163, 0.1);
+            border: 2px solid #ffb3d9;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .baby-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 179, 217, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .baby-info h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d147a3;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .event-details {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .guest-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .family-section {
+            background: linear-gradient(135deg, #ffffff, #fef9ff);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #ff69b4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .family-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 105, 180, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        
+        .family-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+        }
+        
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #d147a3;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-icon {
+            font-size: 1.5rem;
+        }
+        
+        .guest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .guest-item {
+            background: linear-gradient(45deg, #fff5fc, #ffffff);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ffcce5;
+            font-size: 0.9rem;
+            color: #555;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .guest-item:hover {
+            background: linear-gradient(45deg, #ffe6f7, #fff0fc);
+            border-color: #ff99cc;
+            transform: scale(1.05);
+            color: #333;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+        }
+        
+        .guest-item::after {
+            content: '💕';
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .guest-item:hover::after {
+            opacity: 1;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #d147a3, #ff69b4);
+            border-radius: 25px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(209, 71, 163, 0.3);
+        }
+        
+        .footer h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .sparkle {
+            position: absolute;
+            color: #ff99cc;
+            font-size: 12px;
+            animation: sparkle 4s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+            100% { opacity: 0; transform: scale(0) rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .guest-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .guest-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkles" id="sparkles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="floating-hearts">
+                <div class="heart">💕</div>
+                <div class="heart">💖</div>
+                <div class="heart">💝</div>
+                <div class="heart">💕</div>
+                <div class="heart">💖</div>
+                <div class="heart">💝</div>
+            </div>
+            <h1 class="main-title">Baby Shower</h1>
+            <p class="subtitle">¡Es una niña!</p>
+        </div>
+        
+        <div class="baby-info">
+            <h2>¡Celebremos juntos!</h2>
+            <div class="event-details">
+                <p><strong>🎀 Una dulce princesita está en camino 🎀</strong></p>
+                <p>Fecha: [Fecha del evento]</p>
+                <p>Hora: [Hora del evento]</p>
+                <p>Lugar: [Dirección del evento]</p>
+            </div>
+        </div>
+        
+        <div class="guest-list">
+            <div class="family-section">
+                <h3 class="section-title">
+                    <span class="section-icon">👨‍👩‍👧‍👦</span>
+                    Familia Nuclear
+                </h3>
+                <div class="guest-grid">
+                    <div class="guest-item">Papá y mamá</div>
+                    <div class="guest-item">Hermanas</div>
+                    <div class="guest-item">Abuela</div>
+                </div>
+            </div>
+            
+            <div class="family-section">
+                <h3 class="section-title">
+                    <span class="section-icon">👨‍👩‍👧‍👦</span>
+                    Familia Papá
+                </h3>
+                <div class="guest-grid">
+                    <div class="guest-item">Tía Vilma, tío Alberto y Daniela</div>
+                    <div class="guest-item">Judith y Geison</div>
+                    <div class="guest-item">Carlos y Camila</div>
+                    <div class="guest-item">Vicki</div>
+                    <div class="guest-item">Brayan</div>
+                    <div class="guest-item">Lesly</div>
+                    <div class="guest-item">Kelly</div>
+                    <div class="guest-item">Lucio</div>
+                    <div class="guest-item">Nathaly</div>
+                    <div class="guest-item">Padrino Erasmo y esposa</div>
+                    <div class="guest-item">Tía Flor y esposo</div>
+                    <div class="guest-item">Tía Jessica y esposo</div>
+                    <div class="guest-item">Yunca y esposa</div>
+                    <div class="guest-item">Julián y esposa</div>
+                    <div class="guest-item">Marco y esposa</div>
+                    <div class="guest-item">Luisa y Claudio</div>
+                    <div class="guest-item">Jhon</div>
+                    <div class="guest-item">Hugo</div>
+                    <div class="guest-item">Claudia</div>
+                    <div class="guest-item">Tía Vene</div>
+                    <div class="guest-item">Tía Dixsi y esposo</div>
+                    <div class="guest-item">Tío Carlos y esposa</div>
+                    <div class="guest-item">Tía Sandra y esposa</div>
+                    <div class="guest-item">Tío Víctor</div>
+                    <div class="guest-item">Ashly</div>
+                    <div class="guest-item">Luz</div>
+                    <div class="guest-item">Tía Santora y tío Pancho</div>
+                    <div class="guest-item">Primo Chino y esposa</div>
+                    <div class="guest-item">Primo Renzo</div>
+                    <div class="guest-item">Tía Susana e hijos</div>
+                    <div class="guest-item">Madrina Jessica</div>
+                    <div class="guest-item">Tía Sonia y esposo</div>
+                    <div class="guest-item">Tía Jenny y papá</div>
+                    <div class="guest-item">Tía Mary y esposa</div>
+                    <div class="guest-item">Tío Lucho</div>
+                    <div class="guest-item">Tío Simeón y esposa</div>
+                    <div class="guest-item">Tía Olivia</div>
+                    <div class="guest-item">Primo Pinpi</div>
+                    <div class="guest-item">Primo Ruel</div>
+                </div>
+            </div>
+            
+            <div class="family-section">
+                <h3 class="section-title">
+                    <span class="section-icon">👩‍👩‍👧‍👦</span>
+                    Familia Mamá
+                </h3>
+                <div class="guest-grid">
+                    <div class="guest-item">Tío Tomás</div>
+                    <div class="guest-item">Tío Kike, Josep, Henry</div>
+                    <div class="guest-item">Tía Adaliz y esposo</div>
+                    <div class="guest-item">Tío Solis</div>
+                    <div class="guest-item">Tío Gorda</div>
+                    <div class="guest-item">Tía Diana</div>
+                    <div class="guest-item">Tío Carlos</div>
+                    <div class="guest-item">Tía Aviza</div>
+                    <div class="guest-item">Tío Ronaldo</div>
+                </div>
+            </div>
+            
+            <div class="family-section">
+                <h3 class="section-title">
+                    <span class="section-icon">🤗</span>
+                    Vecinos y Amigos
+                </h3>
+                <div class="guest-grid">
+                    <div class="guest-item">Madrina Vanessa y vecina Ninfa</div>
+                    <div class="guest-item">Vecina Charo</div>
+                    <div class="guest-item">Vecino Walter y vecina Juana</div>
+                    <div class="guest-item">Pilar</div>
+                    <div class="guest-item">Julio</div>
+                    <div class="guest-item">Raquel</div>
+                    <div class="guest-item">Luis</div>
+                    <div class="guest-item">Jean Pierre</div>
+                    <div class="guest-item">Bethy</div>
+                    <div class="guest-item">Alely</div>
+                    <div class="guest-item">Carina</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>¡Tu presencia es nuestro regalo más preciado!</h3>
+            <p>Confirmación: [Número de teléfono o WhatsApp]</p>
+        </div>
+    </div>
+    
+    <script>
+        // Crear chispas animadas
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 4 + 's';
+            document.getElementById('sparkles').appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 4000);
+        }
+        
+        // Crear chispas cada 500ms
+        setInterval(createSparkle, 500);
+        
+        // Efecto hover mejorado para los invitados
+        document.querySelectorAll('.guest-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+        
+        // Animación de entrada escalonada
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.family-section');
+            sections.forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    section.style.transition = 'all 0.6s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
