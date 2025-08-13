@@ -337,16 +337,16 @@
                     <div class="guest-item">Tía Vilma, tío Alberto y Daniela</div>
                     <div class="guest-item">Judith y Geison</div>
                     <div class="guest-item">Carlos y Camila</div>
-                    <div class="guest-item">Vicki</div>
+                    <div class="guest-item">Vicki y esposo</div>
                     <div class="guest-item">Brayan</div>
-                    <div class="guest-item">Lesly</div>
+                    <div class="guest-item">Lesly y esposo</div>
                     <div class="guest-item">Kelly</div>
                     <div class="guest-item">Lucio</div>
                     <div class="guest-item">Nathaly</div>
                     <div class="guest-item">Padrino Erasmo y esposa</div>
                     <div class="guest-item">Tía Flor y esposo</div>
                     <div class="guest-item">Tía Jessica y esposo</div>
-                    <div class="guest-item">Yunca y esposa</div>
+                    <div class="guest-item">Alberto y esposa</div>
                     <div class="guest-item">Julián y esposa</div>
                     <div class="guest-item">Marco y esposa</div>
                     <div class="guest-item">Luisa y Claudio</div>
@@ -359,7 +359,7 @@
                     <div class="guest-item">Tía Sandra y esposa</div>
                     <div class="guest-item">Tío Víctor</div>
                     <div class="guest-item">Ashly</div>
-                    <div class="guest-item">Luz</div>
+                    <div class="guest-item">Luz Clara y esposo</div>
                     <div class="guest-item">Tía Santora y tío Pancho</div>
                     <div class="guest-item">Primo Chino y esposa</div>
                     <div class="guest-item">Primo Renzo</div>
@@ -386,10 +386,10 @@
                     <div class="guest-item">Tío Kike, Josep, Henry</div>
                     <div class="guest-item">Tía Adaliz y esposo</div>
                     <div class="guest-item">Tío Solis</div>
-                    <div class="guest-item">Tío Gorda</div>
+                    <div class="guest-item">Tío Melvin</div>
                     <div class="guest-item">Tía Diana</div>
                     <div class="guest-item">Tío Carlos</div>
-                    <div class="guest-item">Tía Aviza</div>
+                    <div class="guest-item">Tía Ariza y mamá</div>
                     <div class="guest-item">Tío Ronaldo</div>
                 </div>
             </div>
@@ -422,7 +422,6 @@
     </div>
     
     <script>
-        // Crear chispas animadas
         function createSparkle() {
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
@@ -437,10 +436,8 @@
             }, 4000);
         }
         
-        // Crear chispas cada 500ms
         setInterval(createSparkle, 500);
         
-        // Efecto hover mejorado para los invitados
         document.querySelectorAll('.guest-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
                 this.style.transform = 'scale(1.05) rotate(1deg)';
@@ -451,7 +448,6 @@
             });
         });
         
-        // Animación de entrada escalonada
         window.addEventListener('load', function() {
             const sections = document.querySelectorAll('.family-section');
             sections.forEach((section, index) => {
